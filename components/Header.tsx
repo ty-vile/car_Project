@@ -4,7 +4,7 @@ import { Button } from "@/components";
 
 function Header() {
   return (
-    <header className="w-full absolute z-10">
+    <header className="fixed bg-white w-full z-50">
       <nav className="flex items-center justify-between max-w-[1800px] mx-auto  p-4">
         <div>
           <Link href="/">

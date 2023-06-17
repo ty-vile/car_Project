@@ -14,9 +14,9 @@ module.exports = {
           dark: "rgb(37 99 235)",
         },
         gray: {
-          light: "rgb(243 244 246)",
-          primary: "rgb(229 231 235)",
-          dark: "rgb(209 213 219)",
+          light: "rgb(209 213 219)",
+          primary: "rgb(156 163 175)",
+          dark: "rgb(107 114 128)",
         },
       },
     },
