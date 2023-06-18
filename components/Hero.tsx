@@ -7,7 +7,7 @@ function Hero() {
   const handleScroll = () => {};
 
   return (
-    <div className="flex flex-col z-0 max-w-[1800px] mx-auto xl:flex-row w-full">
+    <div className="flex flex-col min-h-screen items-center z-0 max-w-[1800px] mx-auto xl:flex-row w-full">
       <div className="flex flex-col w-full gap-5 mb-20 px-4 pt-24 z-20 xl:mb-0  xl:pt-0 xl:justify-center ">
         <h1>Find, book, or rent a car - quickly and easily!</h1>
         <p className="text-xl">
