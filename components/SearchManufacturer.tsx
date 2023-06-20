@@ -24,7 +24,7 @@ function SearchManufacturer({
 
   return (
     <div className="">
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[18px]">
             <Image
@@ -59,7 +59,15 @@ function SearchManufacturer({
                   }
                   value={item}
                 >
-                  {item}
+                  {({ active, selected }) => (
+                    <li
+                      className={`${
+                        active ? "bg-blue-primary text-white" : "text-gray-dark"
+                      }`}
+                    >
+                      {item}
+                    </li>
+                  )}
                 </Combobox.Option>
               ))}
             </Combobox.Options>
