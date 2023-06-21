@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CarDetailsProps } from "@/types";
+import { generateCarImageUrl } from "@/utils";
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
   const {
@@ -66,7 +67,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                         className="object-cover rounded-xl"
                       />
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car)}
                         height={200}
                         width={400}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -75,16 +76,31 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <div className="col-span-1 bg-gray-100 flex items-center justify-center p-2 rounded-lg">
-                        <Image src="/hero.png" width={200} height={200} />
+                        <Image
+                          src={generateCarImageUrl(car, "29")}
+                          width={200}
+                          height={200}
+                          alt="Car Image Angle One"
+                        />
                       </div>
                       <div className="col-span-1 bg-gray-100 flex items-center justify-center p-2 rounded-lg">
-                        <Image src="/hero.png" width={200} height={200} />
+                        <Image
+                          src={generateCarImageUrl(car, "33")}
+                          width={200}
+                          height={200}
+                          alt="Car Image Angle Two"
+                        />
                       </div>
                       <div className="col-span-1 bg-gray-100 flex items-center justify-center p-2 rounded-lg">
-                        <Image src="/hero.png" width={200} height={200} />
+                        <Image
+                          src={generateCarImageUrl(car, "13")}
+                          width={200}
+                          height={200}
+                          alt="Car Image Angle Three"
+                        />
                       </div>
                     </div>
-                    <div className="flex flex-col  w-full p-4 gap-4">
+                    <div className="flex flex-col w-full p-4 gap-4">
                       <Dialog.Title>
                         <h1 className="text-3xl">
                           {make.toUpperCase()} {model.toUpperCase()}
