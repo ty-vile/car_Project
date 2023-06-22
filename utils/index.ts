@@ -1,22 +1,24 @@
-import { CarProps } from "@/types";
+import { CarProps, FilterProps } from "@/types";
 
-export async function getCars() {
-  const headers = {
-    "X-RapidAPI-Key": process.env.RAPID_API_KEY,
-    "X-RapidAPI-Host": process.env.RAPID_HOST_URL,
+export async function getCars(filters: FilterProps) {
+  const { manufacturer, year, limit, fuel, model } = filters;
+
+  const headers: HeadersInit = {
+    "X-RapidAPI-Key": process.env.RAPID_API_KEY || "",
+    "X-RapidAPI-Host": process.env.RAPID_HOST_URL || "",
   };
 
-  // try {
-  //   const response = await fetch(
-  //     `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla`,
-  //     { headers: headers }
-  //   );
+  try {
+    const response = await fetch(
+      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
+      { headers: headers }
+    );
 
-  //   const result = await response.json();
-  //   return result;
-  // } catch (error) {
-  //   console.log(error);
-  // }
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -37,7 +39,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 
   const { make, year, model } = car;
 
-  url.searchParams.append("customer", "ADD_KEY_HERE");
+  url.searchParams.append("customer", "auty-jake");
   url.searchParams.append("make", make);
   url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("zoomType", "fullscreen");

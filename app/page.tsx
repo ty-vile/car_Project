@@ -2,14 +2,20 @@ import { CarCard, Filter, Hero, SearchBar } from "@/components";
 import { fakeCarsData } from "@/data/cars";
 import { getCars } from "@/utils";
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
   // NOTES
   // UNCOMMENT IN PRODUCTION
-  // const allCars = await getCars();
+  const allCars = await getCars({
+    manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
+    model: searchParams.model || "",
+  });
 
   // NOTES
   // REMOVE IN PRODUCTION
-  const allCars = fakeCarsData;
+  // const allCars = fakeCarsData;
 
   const isCarsEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
