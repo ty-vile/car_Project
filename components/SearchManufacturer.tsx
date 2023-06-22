@@ -9,6 +9,7 @@ import { manufacturers } from "@/constants";
 function SearchManufacturer({
   manufacturer,
   setManufacturer,
+  searchError,
 }: SearchManufacturerProps) {
   const [query, setQuery] = useState("");
 
@@ -36,7 +37,11 @@ function SearchManufacturer({
             />
           </Combobox.Button>
           <Combobox.Input
-            className="p-4 bg-gray-100 rounded-lg w-full pl-12 focus:outline-blue-primary"
+            className={`p-4 bg-gray-100 rounded-lg w-full pl-12  ${
+              searchError
+                ? "border-red-500 border-2 focus:outline-red-500"
+                : "focus:outline-blue-primary"
+            }`}
             placeholder="Select Model"
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}

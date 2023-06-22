@@ -15,6 +15,7 @@ export interface FilterProps {
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
+  searchError: boolean;
 }
 
 export interface CarProps {
