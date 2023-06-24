@@ -1,4 +1,5 @@
 import { CarCard, Filter, Hero, SearchBar } from "@/components";
+import { fuels, yearsOfProduction } from "@/constants";
 import { fakeCarsData } from "@/data/cars";
 import { getCars } from "@/utils";
 
@@ -30,9 +31,9 @@ export default async function Home({ searchParams }) {
         <div className="w-full">
           <SearchBar />
 
-          <div className="flex">
-            <Filter title="fuel" />
-            <Filter title="year" />
+          <div className="flex w-full gap-2">
+            <Filter title="fuel" options={fuels} />
+            <Filter title="year" options={yearsOfProduction} />
           </div>
         </div>
         {!isCarsEmpty ? (

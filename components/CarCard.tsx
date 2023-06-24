@@ -36,8 +36,8 @@ function CarCard({ car }: CarCardProps) {
           src={generateCarImageUrl(car)}
           alt="Car Model"
           fill
-          priority
           className="object-contain"
+          loading="lazy"
         />
       </div>
 

@@ -8,12 +8,22 @@ export interface ButtonProps {
   btnType?: "button" | "submit";
 }
 
-export interface FilterProps {
+export interface CarFilterProps {
   manufacturer: string;
   year: number;
   fuel: string;
   limit: number;
   model: string;
+}
+
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
 }
 
 export interface SearchManufacturerProps {
