@@ -1,10 +1,22 @@
 import { CarCard, Filter, Hero, SearchBar } from "@/components";
 import ShowMore from "@/components/ShowMore";
 import { fuels, yearsOfProduction } from "@/constants";
-import { fakeCarsData } from "@/data/cars";
+
 import { getCars } from "@/utils";
 
-export default async function Home({ searchParams }) {
+interface SearchParams {
+  manufacturer?: string;
+  year?: number;
+  fuel?: string;
+  limit?: number;
+  model?: string;
+}
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
   // NOTES
   // UNCOMMENT IN PRODUCTION
   const allCars = await getCars({
@@ -14,10 +26,6 @@ export default async function Home({ searchParams }) {
     limit: searchParams.limit || 10,
     model: searchParams.model || "",
   });
-
-  // NOTES
-  // REMOVE IN PRODUCTION
-  // const allCars = fakeCarsData;
 
   const isCarsEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
