@@ -40,8 +40,8 @@ export default async function Home({ searchParams }) {
         {!isCarsEmpty ? (
           <section>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-              {allCars?.map((car) => {
-                return <CarCard car={car} />;
+              {allCars?.map((car, i) => {
+                return <CarCard key={i} car={car} />;
               })}
             </div>
 
