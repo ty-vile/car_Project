@@ -19,7 +19,7 @@ function Filter({ title, options }: CustomFilterProps) {
   };
 
   return (
-    <div className="w-3/12 p-4 bg-gray-100 mb-4 rounded-lg flex">
+    <div className="w-6/12 mt-4 p-4 bg-gray-100 mb-4 rounded-lg flex lg:w-3/12 lg:mt-0">
       <Listbox
         value={selected}
         onChange={(e) => {

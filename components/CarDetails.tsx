@@ -49,7 +49,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-0"
                 >
-                  <Dialog.Panel className="relative w-[300px] md:w-[600px] lg:w-[800px]  h-fit max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xs transition-all flex flex-col p-4 gap-5">
+                  <Dialog.Panel className="relative w-[300px] md:w-[600px] lg:w-[800px]  h-fit max-h-[80vh] overflow-y-auto transform rounded-2xl bg-white text-left  shadow-xs transition-all flex flex-col p-4 pt-32 lg:pt-0 gap-5">
                     <button type="button" onClick={closeModal}>
                       <Image
                         src="/close.svg"
@@ -59,7 +59,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                         className="object-contain absolute top-6 right-2 z-10 bg-white rounded-full p-1 hover:scale-95 transition-all"
                       />
                     </button>
-                    <div className=" h-60 relative">
+                    <div className="h-[400px] relative">
                       <Image
                         src="/pattern.png"
                         fill
@@ -70,7 +70,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                         src={generateCarImageUrl(car)}
                         height={200}
                         width={400}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                        className="absolute -top-32 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
                         alt="Main Car Image"
                       />
                     </div>
